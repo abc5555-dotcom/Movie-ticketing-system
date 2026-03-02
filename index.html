@@ -9,20 +9,20 @@
 		<h1>新影城訂票</h1>
 		<nav>
 			<ul>
-			<li>影城介紹</li>
-			<li onclick="index.html">電影資訊介紹</li>
-			<li>會員登入</li>
+			<li><a href="#about">影城介紹</a></li>
+			<li><a href="#movies">電影資訊介紹</a></li>
+			<li><a href="#member">會員登入</a></li>
 			</ul>
 		</nav>
 	
 	</header>
 	<main>
-		<section class="header_img">
+		<section id="about" class="header_img">
 			<img src="img_movie/00.png">
 		</section>
 		
 		<h2>電影資訊介紹</h2>
-		<section class="movie-info">
+		<section id="movies" class="movie-info">
 		  <!-- 電影資訊 -->
 		  
 		  <div class="movie-card">
@@ -57,7 +57,7 @@
 		  <button onclick="goBooking()">立即訂票</button>
 		</div>
 		
-		<section class="member-area">
+		<section id="member" class="member-area">
 		  <!-- 會員專區 -->
 		  <h2>會員登入</h2>
 		  <form>
