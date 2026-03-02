@@ -1,0 +1,86 @@
+<html>
+<head>
+	<title>電影訂票系統</title>
+</head>
+
+<body>
+	<header>
+		<h1>新影城訂票</h1>
+		<nav>
+			<ul>
+			<li>影城介紹</li>
+			<li>電影資訊介紹</li>
+			<li>會員登入</li>
+			</ul>
+		</nav>
+	
+	</header>
+	<main>
+		<section class="header_img">
+			<img src="img_movie/00.png">
+		</section>
+		
+		<h2>電影資訊介紹</h2>
+		<section class="movie-info">
+		  <!-- 電影資訊 -->
+		  
+		  <div class="movie-card">
+			<img src="img_movie/01.png">
+			<h3>藍色星期一 </br>(Blue Monday)</h3>
+			<h4>類型:劇情/都市</h4>
+			<p>《藍色星期一》是一部關於現代都市孤獨的沉思。在繁忙都市中迷失的年輕人。</p>
+		  </div>
+		  
+		  <div class="movie-card">
+			<img src="img_movie/02.png">
+			<h3>綠色星期二</br>(Green Tuesday)</h3>
+			<h4>類型:生態奇幻/冒險</h4>
+			<p>《這部綠色色調的生態電影，背景是一個巨大、由森林覆蓋的生態城市建築。兩位年輕的探險家，他們努力與大自然和諧共存。</p>
+		  </div>
+		  
+		  <div class="movie-card">
+			<img src="img_movie/03.png">
+			<h3>灰色星期三</br>(Gray Wednesday)</h3>
+			<h4>類型:辦公室喜劇</h4>
+			<p>《灰色星期三》捕	捉了現代辦公室生活的灰暗，傳達了工作日的停滯感。</p>
+		  </div>
+		  
+		  <div class="movie-card">
+			<img src="img_movie/04.png">
+			<h3>橙色星期四</br>(Orange Thursday)</h3>
+			<h4>類型:家庭/冒險/秋天</h4>
+			<p>《這部秋天主題家庭電影，橙色和金色光線捕捉了家庭在秋天的日落時分，在橙色葉子的森林中露營的畫面。</p>
+		  </div>
+		  
+		  <button onclick="goBooking()">立即訂票</button>
+		</section>
+		
+		<section class="seat-area">
+		  <h2>座位選擇</h2>
+		  <div class="screen">螢幕</div>
+		  <div class="seat-container">
+			<!-- 之後放座位格子 -->
+		  </div>
+		</section>
+		
+		<section class="member-area">
+		  <!-- 會員專區 -->
+		  <h2>會員登入</h2>
+		  <form>
+			<label>帳號:</label>
+			<input type="text" name="account" placeholder="請輸入帳號"><br>
+			<label>密碼:</label>
+			<input type="password" name="password" minlength="8" required><br>
+			<button type="submit">送出</button>
+			<button type="reset">取消</button>
+		  </form>
+		  
+		</section>
+
+  </main>
+  <footer>
+	@2025新影城，版權所有
+  </footer>
+  <script src=”script.js”></script>
+</body>
+</html>
