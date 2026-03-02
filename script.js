@@ -1,6 +1,6 @@
 <script>
 	function goBooking(){
-		window.location.href = "booking.html";
+		window.location.href = "./booking.html";
 	}
 	let selectedMovie = "";  
 	let selectedDate = ""; 
