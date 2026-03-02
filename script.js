@@ -1,5 +1,4 @@
-<script>
-	function goBooking(){
+function goBooking(){
 		window.location.href = "./booking.html";
 	}
 	let selectedMovie = "";  
@@ -38,4 +37,3 @@
 			alert("請選擇完整資訊！");
 		}
 	}
-</script>
