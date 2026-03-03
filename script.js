@@ -37,3 +37,9 @@ function goBooking(){
 			alert("請選擇完整資訊！");
 		}
 	}
+let selectedLocation = "";
+
+function selectLocation(location){
+	selectedLocation = location;
+	alert("你選擇了：" + location);
+}
