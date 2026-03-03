@@ -355,9 +355,11 @@ select{
 	margin:5px 0 15px 0;
 }
 
-.member-area button{
+/* 按鈕置中 */
+.member-area form{
 	text-align:center;
 }
+
 /* Footer */
 
 footer{
