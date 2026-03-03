@@ -145,6 +145,14 @@ h2{
 /* 按鈕 */
 /* ===================== */
 
+.movie-select,
+.date-select,
+.time-select,
+.location-select,
+.summary{
+	text-align:center;
+}
+
 button{
 	padding:10px 18px;
 	border:none;
@@ -153,7 +161,6 @@ button{
 	background:#222;
 	color:#fff;
 	transition:0.3s ease;
-	text-align:center;
 }
 
 button:hover{
