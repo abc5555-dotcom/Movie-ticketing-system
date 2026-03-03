@@ -167,6 +167,82 @@ footer{
 	padding:20px;
 }
 
+/* ===== 卡片區塊 ===== */
+.movie-select {
+	background: white;
+	width: 100%;
+	max-width: 600px;
+	padding: 25px;
+	margin-bottom: 20px;
+	border-radius: 15px;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+	transition: 0.3s ease;
+}
+
+.movie-select:hover {
+	transform: translateY(-3px);
+}
+/* ===== 下拉選單 ===== */
+select {
+	width: 100%;
+	padding: 10px;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	font-size: 14px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+select:focus {
+	border-color: #2a5298;
+	outline: none;
+}
+/* ===== 按鈕樣式 ===== */
+.date-select button {
+	padding: 10px 15px;
+	margin: 5px 5px 5px 0;
+	border: none;
+	border-radius: 8px;
+	background: #2a5298;
+	color: white;
+	cursor: pointer;
+	font-size: 14px;
+	transition: 0.3s ease;
+}
+
+.date-select button:hover {
+	background: #1e3c72;
+	transform: scale(1.05);
+}
+
+.date-select button:active {
+	transform: scale(0.98);
+}
+/* ===== 訂票摘要 ===== */
+		.summary p {
+		  background: #f5f7fa;
+		  padding: 15px;
+		  border-radius: 8px;
+		  line-height: 1.8;
+		  min-height: 60px;
+		}
+
+/* ===== 確認按鈕特別樣式 ===== */
+.summary button {
+	width: 100%;
+	margin-top: 10px;
+	background: #28a745;
+}
+
+.summary button:hover {
+	background: #218838;
+}
+
+/* ===== 隱藏區塊 ===== */
+.date-select,
+.time-select {
+	display: none;
+}
+
 /* 📱 RWD 手機版 */
 @media (max-width:768px){
 
