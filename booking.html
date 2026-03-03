@@ -17,48 +17,49 @@
 	  </header>
 	
 		<h2 style="text-align:center;">電影訂票</h2>
-		<!-- 這裡放電影按鈕 -->
-		<section class="movie-select">
-		  <h2>選擇電影</h2>
-		  <select onchange="selectMovie(this.value)">
-			<option value="">請選擇電影</option>
-			<option value="藍色星期一">藍色星期一(Blue Monday)</option>
-			<option value="綠色星期二">綠色星期二(Green Tuesday)</option>
-			<option value="灰色星期三">灰色星期三(Gray Wednesday)</option>
-			<option value="橙色星期四">橙色星期四(Orange Thursday)</option>
-		  </select>
-		</section>
+		<main class="booking-container">
+			<section class="movie-select">
+			  <h2>選擇電影</h2>
+			  <select onchange="selectMovie(this.value)">
+				<option value="">請選擇電影</option>
+				<option value="藍色星期一">藍色星期一(Blue Monday)</option>
+				<option value="綠色星期二">綠色星期二(Green Tuesday)</option>
+				<option value="灰色星期三">灰色星期三(Gray Wednesday)</option>
+				<option value="橙色星期四">橙色星期四(Orange Thursday)</option>
+			  </select>
+			</section>
 
-		<section class="date-select">
-		  <h2>選擇日期</h2>
-		  <button onclick="selectDate('2025年09月1日')">2025年09月1日</button>
-		  <button onclick="selectDate('2025年09月2日')">2025年09月2日</button>
-		  <button onclick="selectDate('2025年09月3日')">2025年09月3日</button>
-		  <button onclick="selectDate('2025年09月4日')">2025年09月4日</button>
-		  <button onclick="selectDate('2025年09月5日')">2025年09月5日</button>
-		</section>
+			<section class="date-select">
+			  <h2>選擇日期</h2>
+			  <button onclick="selectDate('2025年09月1日')">2025年09月1日</button>
+			  <button onclick="selectDate('2025年09月2日')">2025年09月2日</button>
+			  <button onclick="selectDate('2025年09月3日')">2025年09月3日</button>
+			  <button onclick="selectDate('2025年09月4日')">2025年09月4日</button>
+			  <button onclick="selectDate('2025年09月5日')">2025年09月5日</button>
+			</section>
 
-		<section class="time-select">
-		  <h2>選擇時間</h2>
-		  <button onclick="selectTime('9:00')">9:00</button>
-		  <button onclick="selectTime('12:30')">12:30</button>
-		  <button onclick="selectTime('14:30')">14:30</button>
-		  <button onclick="selectTime('17:00')">17:00</button>
-		  <button onclick="selectTime('20:30')">20:30</button>
-		</section>
-		<section class="location-select">
-			<h3>選擇影廳</h3>
-			<button onclick="selectLocation('A廳')">A廳</button>
-			<button onclick="selectLocation('B廳')">B廳</button>
-			<button onclick="selectLocation('C廳')">C廳</button>
-			<button onclick="selectLocation('VIP廳')">VIP廳</button>
-		</section>
+			<section class="time-select">
+			  <h2>選擇時間</h2>
+			  <button onclick="selectTime('9:00')">9:00</button>
+			  <button onclick="selectTime('12:30')">12:30</button>
+			  <button onclick="selectTime('14:30')">14:30</button>
+			  <button onclick="selectTime('17:00')">17:00</button>
+			  <button onclick="selectTime('20:30')">20:30</button>
+			</section>
+			<section class="location-select">
+				<h3>選擇影廳</h3>
+				<button onclick="selectLocation('A廳')">A廳</button>
+				<button onclick="selectLocation('B廳')">B廳</button>
+				<button onclick="selectLocation('C廳')">C廳</button>
+				<button onclick="selectLocation('VIP廳')">VIP廳</button>
+			</section>
 		
-		<section class="summary">
-		  <h2>訂票資訊</h2>
-		  <p id="summaryText"></p>
-		  <button onclick="confirmBooking()">確認訂票</button>
-		</section>
+			<section class="summary">
+			  <h2>訂票資訊</h2>
+			  <p id="summaryText"></p>
+			  <button onclick="confirmBooking()">確認訂票</button>
+			</section>
+		</main>
 </body>
 	<script src="script.js"></script>
 </html>
