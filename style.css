@@ -150,6 +150,28 @@ button:hover{
 	background:#ffd700;
 	color:#000;
 }
+/* 影城介紹 */
+.about-cinema{
+	display:flex;
+	gap:40px;
+	max-width:1000px;
+	margin:60px auto;
+	align-items:center;
+	background:white;
+	padding:40px;
+	border-radius:15px;
+	box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.about-left img{
+	width:100%;
+	border-radius:12px;
+}
+
+.about-left,
+.about-right{
+	flex:1;
+}
 
 /* ===================== */
 /* 訂票選擇卡片區塊 */
@@ -330,4 +352,8 @@ footer{
 	.seat-container{
 		grid-template-columns:repeat(5, 1fr);
 	}
+	.about-cinema{
+	flex-direction:column;
+	text-align:center;
+}
 }
