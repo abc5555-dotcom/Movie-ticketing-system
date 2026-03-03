@@ -2,20 +2,20 @@
 	<head>
 		<title>訂票頁面</title>
 		<link rel="stylesheet" href="style.css">
-</heda>
+	</head>
 <body>
 		<header>
-		<h1>新影城訂票</h1>
+		<h1 a href="index.html">新影城訂票</h1>
 		<nav>
 		  <ul>
-			<li><a href="index.html" onclick="history.back()">影城介紹</a></li>
-			<li><a href="index.html" onclick="history.back()">電影資訊介紹</a></li>
-			<li><a href="index.html" onclick="history.back()">會員登入</a></li>
+			<li><a href="index.html">影城介紹</a></li>
+			<li><a href="index.html">電影資訊介紹</a></li>
+			<li><a href="index.html">會員登入</a></li>
 		  </ul>
 		</nav>
 	  </header>
 	
-		<h2>電影訂票</h2>
+		<h2 style="text-align:center;">電影訂票</h2>
 		<!-- 這裡放電影按鈕 -->
 		<section class="movie-select">
 		  <h2>選擇電影</h2>
@@ -25,7 +25,6 @@
 			<option value="綠色星期二">綠色星期二(Green Tuesday)</option>
 			<option value="灰色星期三">灰色星期三(Gray Wednesday)</option>
 			<option value="橙色星期四">橙色星期四(Orange Thursday)</option>
-		  
 		  </select>
 		</section>
 
@@ -40,26 +39,25 @@
 
 		<section class="time-select">
 		  <h2>選擇時間</h2>
-		  <!-- 先隱藏 -->
 		  <button onclick="selectTime('9:00')">9:00</button>
 		  <button onclick="selectTime('12:30')">12:30</button>
 		  <button onclick="selectTime('14:30')">14:30</button>
 		  <button onclick="selectTime('17:00')">17:00</button>
 		  <button onclick="selectTime('20:30')">20:30</button>
 		</section>
-	<section class="location-select">
-	  <h3>選擇影廳</h3>
-	  <button onclick="selectLocation('A廳')">A廳</button>
-	  <button onclick="selectLocation('B廳')">B廳</button>
-	  <button onclick="selectLocation('C廳')">C廳</button>
-	  <button onclick="selectLocation('VIP廳')">VIP廳</button>
-	</section>
+		<section class="location-select">
+			<h3>選擇影廳</h3>
+			<button onclick="selectLocation('A廳')">A廳</button>
+			<button onclick="selectLocation('B廳')">B廳</button>
+			<button onclick="selectLocation('C廳')">C廳</button>
+			<button onclick="selectLocation('VIP廳')">VIP廳</button>
+		</section>
 		
 		<section class="summary">
 		  <h2>訂票資訊</h2>
 		  <p id="summaryText"></p>
 		  <button onclick="confirmBooking()">確認訂票</button>
 		</section>
-</bdoy>
-	<script src="./script.js"></script>
+</body>
+	<script src="script.js"></script>
 </html>
