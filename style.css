@@ -394,7 +394,13 @@ footer{
 		grid-template-columns:repeat(5, 1fr);
 	}
 	.about-cinema{
-	flex-direction:column;
-	text-align:center;
-}
+		flex-direction:column;
+		text-align:center;
+	}
+
+	.about-right ul{
+		list-style:none;
+		padding:0;
+	}
+
 }
