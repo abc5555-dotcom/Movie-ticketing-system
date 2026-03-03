@@ -2,40 +2,47 @@
 	box-sizing:border-box;
 }
 
-body{
+html, body{
 	margin:0;
 	padding:0;
 	font-family: Arial, Helvetica, sans-serif;
-	background:#f4f4f4;
-}
-
-html{
 	scroll-behavior:smooth;
+	background: linear-gradient(to bottom,#f4f4f4,#e9ecef);
+	color:#333;
+	overflow-x:hidden;
 }
 
+/* ===================== */
 /* Header */
+/* ===================== */
+
 header{
-	background: rgba(107,107,107,0.85);
+	background: rgba(60,60,60,0.9);
 	color:#fff;
-	padding:20px; 
+	padding:18px 30px;
 	display:flex;
 	justify-content:space-between;
 	align-items:center;
-	position:sticky;  /*導覽列會固定在最上方*/
+	position:sticky;
 	top:0;
 	z-index:999;
-	box-shadow:0 2px 10px rgba(0,0,0,0.2);
-	backdrop-filter: blur(8px);   /* 毛玻璃效果 */
+	backdrop-filter: blur(10px);
+	box-shadow:0 4px 20px rgba(0,0,0,0.25);
 }
 
 header h1{
 	margin:0;
 	cursor:pointer;
+	transition:0.3s;
 }
-		
-main{
-	margin:0 auto;
+
+header h1:hover{
+	transform:scale(1.05);
 }
+
+/* ===================== */
+/* 導覽列 */
+/* ===================== */
 
 nav ul{
 	list-style:none;
@@ -45,21 +52,14 @@ nav ul{
 	gap:20px;
 }
 
-/* 導覽列連結樣式 */
 nav a{
-	color:#fff;              /* 文字改白色 */
-	text-decoration:none;    /* 移除底線 */
-	font-weight:500;
-	position:relative;       /* 為了做滑動底線效果 */
-	padding-bottom:5px;
-}
-
-/* 滑鼠滑過效果 */
-nav a:hover{
 	color:#fff;
+	text-decoration:none;
+	position:relative;
+	padding-bottom:5px;
+	font-weight:500;
 }
 
-/* 白色底線動畫效果 */
 nav a::after{
 	content:"";
 	position:absolute;
@@ -68,38 +68,47 @@ nav a::after{
 	width:0;
 	height:2px;
 	background:#fff;
-	transition:0.3s ease;
+	transition:0.3s;
 }
 
 nav a:hover::after{
 	width:100%;
 }
 
+/* ===================== */
 /* Hero 圖 */
+/* ===================== */
+
 .header_img{
 	display:flex;
-	justify-content:center;  /* 水平置中 */
-	align-items:center;      /* 垂直置中 */
+	justify-content:center;
+	align-items:center;
 	padding:20px;
 }
+
 .header_img img{
 	max-width:100%;
 	height:auto;
-	display:inline-block;
 	object-fit:contain;
 }
 
+/* ===================== */
 /* Section 通用 */
+/* ===================== */
+
 section{
 	padding:40px 20px;
-	scroll-margin-top:80px; 
+	scroll-margin-top:80px;
 }
-		
+
 h2{
 	text-align:center;
 }
 
-/* 電影區 */
+/* ===================== */
+/* 電影卡片區 */
+/* ===================== */
+
 .movie-info{
 	display:flex;
 	gap:20px;
@@ -109,61 +118,64 @@ h2{
 
 .movie-card{
 	flex:1;
-	max-width:250px;
+	max-width:260px;
 	background:#fff;
-	padding:20px;
-	border-radius:12px;
-	box-shadow:0 4px 12px rgba(0,0,0,0.1);
+	padding:22px;
+	border-radius:18px;
+	box-shadow:0 8px 25px rgba(0,0,0,0.12);
 	text-align:center;
-	transition:0.3s;
+	transition:0.35s ease;
 }
 
 .movie-card:hover{
-	transform:translateY(-5px);
+	transform:translateY(-8px);
+	box-shadow:0 12px 30px rgba(0,0,0,0.18);
 }
 
 .movie-card img{
 	width:100%;
-	border-radius:8px;
+	border-radius:12px;
 }
 
 .movie-card h3{
 	margin:15px 0 5px 0;
 }
-/* 立即訂票的按鈕 */
-.booking-btn{
-	text-align:center;
-	margin-top:30px;
-}
-/* 通用按鈕 */
+
+/* ===================== */
+/* 按鈕 */
+/* ===================== */
+
 button{
-	padding:10px 15px;
+	padding:10px 18px;
 	border:none;
-	border-radius:6px;
+	border-radius:8px;
 	cursor:pointer;
-	background:#111;
+	background:#222;
 	color:#fff;
-	transition:0.3s;
+	transition:0.3s ease;
 }
 
 button:hover{
 	background:#ffd700;
 	color:#000;
+	transform:scale(1.05);
 }
-/* 影城介紹 */
+
+/* ===================== */
+/* 影城介紹區 */
+/* ===================== */
+
 .about-cinema{
 	display:flex;
 	width:100%;
 	min-height:500px;
 }
 
-/* 左右各佔一半 */
 .about-left,
 .about-right{
 	flex:1;
 }
 
-/* 圖片區滿版 */
 .image-overlay{
 	width:100%;
 	height:100%;
@@ -171,7 +183,6 @@ button:hover{
 	overflow:hidden;
 }
 
-/* 圖片撐滿區塊 */
 .image-overlay img{
 	width:100%;
 	height:100%;
@@ -179,72 +190,63 @@ button:hover{
 	display:block;
 }
 
-/* 黑色漸層遮罩（電影感） */
 .image-overlay::after{
 	content:"";
 	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
+	inset:0;
 	background:linear-gradient(
-		to bottom,
-		rgba(0,0,0,0.2),
-		rgba(0,0,0,0.6)
+		to right,
+		rgba(0,0,0,0.5),
+		rgba(0,0,0,0.15)
 	);
 }
-/* 右側文字區塊 */
+
 .about-right{
 	display:flex;
 	flex-direction:column;
 	justify-content:center;
-	padding:80px;
-	background:white;
+	padding:100px 80px;
+	background:linear-gradient(135deg,#ffffff,#f8f9fa);
 }
+
 /* ===================== */
-/* 訂票選擇卡片區塊 */
+/* 訂票區塊 */
 /* ===================== */
 
 .movie-select,
 .date-select,
 .time-select,
 .summary{
-	background: white;
-	width: 100%;
-	max-width: 600px;
-	padding: 25px;
-	margin: 20px auto;   /* ⭐ 水平置中 */
-	border-radius: 15px;
-	box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-	transition: 0.3s ease;
+	background:white;
+	width:100%;
+	max-width:650px;
+	padding:30px;
+	margin:30px auto;
+	border-radius:18px;
+	box-shadow:0 8px 30px rgba(0,0,0,0.12);
+	transition:0.3s ease;
 }
 
 .movie-select:hover,
 .date-select:hover,
 .time-select:hover{
-	transform: translateY(-3px);
+	transform:translateY(-3px);
 }
 
-/* ===== 下拉選單置中 ===== */
+/* 下拉選單 */
+
 select{
-	width: 80%;
-	max-width: 400px;
-	padding: 10px;
-	border-radius: 8px;
-	border: 1px solid #ccc;
-	font-size: 14px;
-	cursor: pointer;
-	transition: 0.3s;
-	margin: 0 auto;
-	display: block;
+	width:80%;
+	max-width:400px;
+	padding:10px;
+	border-radius:8px;
+	border:1px solid #ccc;
+	margin:0 auto;
+	display:block;
 }
 
-select:focus{
-	border-color: #2a5298;
-	outline: none;
-}
+/* 日期時間按鈕 */
 
-/* ===== 日期 & 時間按鈕區置中 ===== */
 .date-select,
 .time-select{
 	display:flex;
@@ -253,31 +255,22 @@ select:focus{
 	gap:15px;
 }
 
-/* 日期按鈕 */
 .date-select button,
 .time-select button{
 	padding:10px 15px;
 	border-radius:8px;
 	background:#2a5298;
 	color:white;
-	font-size:14px;
 	min-width:80px;
 }
 
 .date-select button:hover,
 .time-select button:hover{
-	background: #1e3c72;
-	transform: scale(1.05);
+	background:#1e3c72;
 }
 
-.date-select button:active,
-.time-select button:active{
-	transform: scale(0.98);
-}
+/* 影廳選擇 */
 
-/* ===================== */
-/* 座位區 */
-/* ===================== */
 .location-select{
 	display:flex;
 	justify-content:center;
@@ -293,47 +286,35 @@ select:focus{
 }
 
 .location-select button{
-	padding:10px 15px;
-	border-radius:8px;
+	min-width:80px;
 	background:#444;
 	color:white;
-	min-width:80px;
 }
 
-.location-select button:hover{
-	background:#ffd700;
-	color:black;
-}
+/* 訂票摘要 */
 
-/* ===== 訂票摘要 ===== */
 .summary{
 	text-align:center;
 }
 
 .summary p{
-	background: #f5f7fa;
-	padding: 15px;
-	border-radius: 8px;
-	line-height: 1.8;
-	min-height: 60px;
+	background:#f5f7fa;
+	padding:15px;
+	border-radius:8px;
+	min-height:60px;
 }
 
-/* summary 按鈕不要滿版 */
+/* summary 按鈕 */
+
 .summary button{
-	width: 200px;
-	margin: 20px auto 0 auto;
+	width:200px;
+	margin:20px auto 0 auto;
 	display:block;
-	background: #28a745;
+	background:#28a745;
 	border-radius:25px;
 }
 
-.summary button:hover{
-	background: #218838;
-}
-
-/* ===================== */
 /* 會員區 */
-/* ===================== */
 
 .member-area{
 	background:#fff;
@@ -351,6 +332,7 @@ select:focus{
 }
 
 /* Footer */
+
 footer{
 	background:#111;
 	color:#fff;
@@ -359,35 +341,35 @@ footer{
 }
 
 /* 隱藏區塊 */
+
 .date-select,
 .time-select{
 	display:none;
 }
 
-/* 📱 RWD 手機版 */
+/* ===================== */
+/* RWD */
+/* ===================== */
+
 @media (max-width:768px){
 
 	nav ul{
 		flex-direction:column;
 		gap:10px;
 	}
-	
+
 	.movie-info{
 		flex-direction:column;
 		align-items:center;
 	}
-	
-	.seat-container{
-		grid-template-columns:repeat(5, 1fr);
-	}
+
 	.about-cinema{
 		flex-direction:column;
 		text-align:center;
 	}
 
-	.about-right ul{
-		list-style:none;
-		padding:0;
+	.about-right{
+		padding:50px 30px;
 	}
 
 }
