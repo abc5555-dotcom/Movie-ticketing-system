@@ -14,16 +14,17 @@ html{
 
 /* Header */
 header{
-	background:#6b6b6b;
+	background: rgba(107,107,107,0.85);
 	color:#fff;
 	padding:20px; 
 	display:flex;
 	justify-content:space-between;
 	align-items:center;
-	position:sticky;
+	position:sticky;  /*導覽列會固定在最上方*/
 	top:0;
 	z-index:999;
 	box-shadow:0 2px 10px rgba(0,0,0,0.2);
+	backdrop-filter: blur(8px);   /* 毛玻璃效果 */
 }
 
 header h1{
