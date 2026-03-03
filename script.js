@@ -1,6 +1,9 @@
 function goBooking(){
 	window.location.href = "./booking.html";
 }
+function goHome(){
+	window.location.href = "index.html";
+}
 
 /* ===== 訂票狀態變數 ===== */
 let selectedMovie = "";  
