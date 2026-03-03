@@ -75,8 +75,17 @@ nav a:hover::after{
 }
 
 /* Hero 圖 */
+.header_img{
+	display:flex;
+	justify-content:center;  /* 水平置中 */
+	align-items:center;      /* 垂直置中 */
+	padding:20px;
+}
 .header_img img{
-	object-fit:cover;
+	max-width:100%;
+	height:auto;
+	display:inline-block;
+	object-fit:contain;
 }
 
 /* Section 通用 */
