@@ -76,6 +76,8 @@ h2{
 }
 
 .movie-card{
+	flex:1;
+	max-width:250px;
 	background:#fff;
 	padding:20px;
 	width:250px;
