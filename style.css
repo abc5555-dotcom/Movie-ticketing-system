@@ -43,12 +43,34 @@ nav ul{
 	gap:20px;
 }
 
-nav li{
-	cursor:pointer;
+/* 導覽列連結樣式 */
+nav a{
+	color:#fff;              /* 文字改白色 */
+	text-decoration:none;    /* 移除底線 */
+	font-weight:500;
+	position:relative;       /* 為了做滑動底線效果 */
+	padding-bottom:5px;
 }
 
-nav li:hover{
-	color:#ffd700;
+/* 滑鼠滑過效果 */
+nav a:hover{
+	color:#fff;
+}
+
+/* 白色底線動畫效果 */
+nav a::after{
+	content:"";
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:0;
+	height:2px;
+	background:#fff;
+	transition:0.3s ease;
+}
+
+nav a:hover::after{
+	width:100%;
 }
 
 /* Hero 圖 */
