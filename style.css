@@ -215,18 +215,28 @@ button:hover{
 /* 訂票區塊 */
 /* ===================== */
 
+.booking-container{
+	max-width:800px;
+	margin:0 auto;
+	padding:20px;
+}
+
+.booking-container h2{
+	margin-bottom:20px;
+}
+
 .movie-select,
 .date-select,
 .time-select,
+.location-select,
 .summary{
-	background:white;
 	width:100%;
-	max-width:650px;
-	padding:30px;
+	max-width:700px;
 	margin:30px auto;
 	border-radius:18px;
-	box-shadow:0 8px 30px rgba(0,0,0,0.12);
-	transition:0.3s ease;
+	background:white;
+	padding:35px;
+	box-shadow:0 6px 25px rgba(0,0,0,0.12);
 }
 
 .movie-select:hover,
