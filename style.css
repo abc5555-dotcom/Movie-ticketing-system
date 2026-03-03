@@ -199,17 +199,18 @@ select:focus{
 	display:flex;
 	justify-content:center;
 	flex-wrap:wrap;
-	gap:10px;
+	gap:15px;
 }
 
 /* 日期按鈕 */
 .date-select button,
 .time-select button{
-	padding: 10px 15px;
-	border-radius: 8px;
-	background: #2a5298;
-	color: white;
-	font-size: 14px;
+	padding:10px 15px;
+	border-radius:8px;
+	background:#2a5298;
+	color:white;
+	font-size:14px;
+	min-width:80px;
 }
 
 .date-select button:hover,
@@ -221,6 +222,36 @@ select:focus{
 .date-select button:active,
 .time-select button:active{
 	transform: scale(0.98);
+}
+
+/* ===================== */
+/* 座位區 */
+/* ===================== */
+.location-select{
+	display:flex;
+	justify-content:center;
+	flex-wrap:wrap;
+	gap:15px;
+	background:white;
+	max-width:600px;
+	margin:20px auto;
+	padding:25px;
+	border-radius:15px;
+	box-shadow:0 8px 20px rgba(0,0,0,0.15);
+	text-align:center;
+}
+
+.location-select button{
+	padding:10px 15px;
+	border-radius:8px;
+	background:#444;
+	color:white;
+	min-width:80px;
+}
+
+.location-select button:hover{
+	background:#ffd700;
+	color:black;
 }
 
 /* ===== 訂票摘要 ===== */
@@ -247,42 +278,6 @@ select:focus{
 
 .summary button:hover{
 	background: #218838;
-}
-
-/* ===================== */
-/* 座位區 */
-/* ===================== */
-
-.seat-area{
-	text-align:center;
-}
-
-.screen{
-	background:#ccc;
-	padding:10px;
-	margin-bottom:20px;
-	border-radius:5px;
-	font-weight:bold;
-}
-
-.seat-container{
-	display:grid;
-	grid-template-columns:repeat(8, 1fr);
-	gap:10px;
-	max-width:500px;
-	margin:0 auto;
-}
-
-.seat-container div{
-	background:#444;
-	height:30px;
-	border-radius:4px;
-	cursor:pointer;
-	transition:0.3s;
-}
-
-.seat-container div:hover{
-	background:#ffd700;
 }
 
 /* ===================== */
