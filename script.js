@@ -12,10 +12,11 @@ let selectedDate = "";
 let selectedTime = "";
 let selectedLocation = "";
 
-/* ===== 工具：切換 active ===== */
-function setActive(button) {
-  const group = button.parentElement.querySelectorAll("button");
-  group.forEach(btn => btn.classList.remove("active"));
+/* ===== 通用：設定 active（更穩版） ===== */
+function setActive(button, selector) {
+  document.querySelectorAll(selector).forEach(btn => {
+    btn.classList.remove("active");
+  });
   button.classList.add("active");
 }
 
@@ -23,17 +24,19 @@ function setActive(button) {
 function selectMovie(movieName, event) {
   selectedMovie = movieName;
 
-  if (movieName !== "") {
-    document.querySelector(".date-select").style.display = "block";
-    document.querySelector(".time-select").style.display = "none";
-    document.querySelector(".location-select").style.display = "none";
-  }
+  // 顯示下一步
+  document.querySelector(".date-select")?.style.display = movieName ? "block" : "none";
+  document.querySelector(".time-select").style.display = "none";
+  document.querySelector(".location-select").style.display = "none";
 
+  // reset
   selectedDate = "";
   selectedTime = "";
   selectedLocation = "";
 
-  if (event) setActive(event.target);
+  if (event) {
+    setActive(event.target, ".movie-select .option-btn");
+  }
 
   updateSummary();
 }
@@ -48,7 +51,9 @@ function selectDate(date, event) {
   selectedTime = "";
   selectedLocation = "";
 
-  if (event) setActive(event.target);
+  if (event) {
+    setActive(event.target, ".date-select .option-btn");
+  }
 
   updateSummary();
 }
@@ -61,7 +66,9 @@ function selectTime(time, event) {
 
   selectedLocation = "";
 
-  if (event) setActive(event.target);
+  if (event) {
+    setActive(event.target, ".time-select .option-btn");
+  }
 
   updateSummary();
 }
@@ -70,7 +77,9 @@ function selectTime(time, event) {
 function selectLocation(location, event) {
   selectedLocation = location;
 
-  if (event) setActive(event.target);
+  if (event) {
+    setActive(event.target, ".location-select .option-btn");
+  }
 
   updateSummary();
 }
@@ -78,11 +87,16 @@ function selectLocation(location, event) {
 /* ===== 訂票摘要更新 ===== */
 function updateSummary() {
   document.getElementById("summaryText").innerHTML = `
-    <div style="text-align:center; line-height:1.8;">
-      <div>電影：${selectedMovie || "未選擇"}</div>
-      <div>日期：${selectedDate || "未選擇"}</div>
-      <div>時間：${selectedTime || "未選擇"}</div>
-      <div>影廳：${selectedLocation || "未選擇"}</div>
+    <div style="
+      text-align:center;
+      line-height:1.8;
+      font-size:16px;
+      color:#333;
+    ">
+      <div>🎬 電影：${selectedMovie || "未選擇"}</div>
+      <div>📅 日期：${selectedDate || "未選擇"}</div>
+      <div>⏰ 時間：${selectedTime || "未選擇"}</div>
+      <div>🏢 影廳：${selectedLocation || "未選擇"}</div>
     </div>
   `;
 }
