@@ -61,19 +61,17 @@ nav a:hover {
 ========================= */
 .header_img {
   width: 100%;
-  height: 70vh;
+  height: 80vh; /* 稍微加高，會更有電影感 */
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent; /* 重點：不要黑底 */
+  position: relative;
 }
 
 .header_img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover;        /* 核心：裁切填滿 */
+  object-position: center;   /* 核心：置中裁切 */
+  transform: scale(1.02);    /* 🔥 關鍵：輕微放大，增加滿版感 */
   display: block;
 }
 
