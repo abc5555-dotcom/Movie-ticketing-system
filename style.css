@@ -189,13 +189,21 @@ button {
   color: #333;
   padding: 10px 14px;
   border-radius: 8px;
-  margin: 5px;
+  transition: 0.2s;
 }
 
 .option-btn:hover {
   background: #1f3a5f;
   color: #fff;
   border-color: #1f3a5f;
+}
+
+/* ⭐ 點選後反白狀態 */
+.option-btn.active {
+  background: #1f3a5f;
+  color: #fff;
+  border-color: #1f3a5f;
+  transform: scale(1.05);
 }
 
 /* =========================
@@ -235,7 +243,10 @@ button {
 
 .btn-group {
   display: flex;
+  justify-content: center;   /* ⭐ 置中 */
   flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 /* select */
