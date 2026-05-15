@@ -74,10 +74,10 @@ function updateSummary() {
   if (!summary) return;
 
   summary.innerHTML = `
-    🎬 電影：${bookingData.movie || "尚未選擇"} <br>
-    📅 日期：${bookingData.date || "尚未選擇"} <br>
-    ⏰ 時間：${bookingData.time || "尚未選擇"} <br>
-    🏢 影廳：${bookingData.location || "尚未選擇"}
+    電影：${bookingData.movie || "尚未選擇"} <br>
+    日期：${bookingData.date || "尚未選擇"} <br>
+    時間：${bookingData.time || "尚未選擇"} <br>
+    影廳：${bookingData.location || "尚未選擇"}
   `;
 }
 
@@ -91,7 +91,7 @@ function confirmBooking() {
     !bookingData.time ||
     !bookingData.location
   ) {
-    alert("⚠️ 請完成所有選項再確認訂票！");
+    alert("請完成所有選項再確認訂票！");
     return;
   }
 
@@ -104,7 +104,7 @@ function confirmBooking() {
   localStorage.setItem("movieTicket", JSON.stringify(ticket));
 
   alert(
-    `🎉 訂票成功！\n\n電影：${ticket.movie}\n日期：${ticket.date}\n時間：${ticket.time}\n影廳：${ticket.location}`
+    `訂票成功！\n\n電影：${ticket.movie}\n日期：${ticket.date}\n時間：${ticket.time}\n影廳：${ticket.location}`
   );
 
   // 可選：跳回首頁
