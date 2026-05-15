@@ -153,7 +153,7 @@ button {
   margin-top: 40px;
 }
 
-/* 主按鈕（取代黃色） */
+/* 主按鈕 */
 .primary-btn,
 .booking-btn button,
 .member-area button[type="submit"] {
@@ -161,6 +161,7 @@ button {
   color: #fff;
   padding: 12px 24px;
   border-radius: 10px;
+   margin-top: 12px;
 }
 
 .primary-btn:hover,
