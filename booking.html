@@ -21,7 +21,8 @@
 
 	<main class="booking-container">
 
-		<section class="booking-panel">
+		<!-- 電影 -->
+		<section class="booking-panel movie-select">
 		  <h2>選擇電影</h2>
 		  <select onchange="selectMovie(this.value)">
 			<option value="">請選擇電影</option>
@@ -32,38 +33,42 @@
 		  </select>
 		</section>
 
-		<section class="booking-panel">
+		<!-- 日期 -->
+		<section class="booking-panel date-select">
 		  <h2>選擇日期</h2>
 		  <div class="btn-group">
-			<button class="option-btn" onclick="selectDate('2025年09月1日')">09/1</button>
-			<button class="option-btn" onclick="selectDate('2025年09月2日')">09/2</button>
-			<button class="option-btn" onclick="selectDate('2025年09月3日')">09/3</button>
-			<button class="option-btn" onclick="selectDate('2025年09月4日')">09/4</button>
-			<button class="option-btn" onclick="selectDate('2025年09月5日')">09/5</button>
+			<button class="option-btn" onclick="selectDate('2025年09月1日', event)">09/1</button>
+			<button class="option-btn" onclick="selectDate('2025年09月2日', event)">09/2</button>
+			<button class="option-btn" onclick="selectDate('2025年09月3日', event)">09/3</button>
+			<button class="option-btn" onclick="selectDate('2025年09月4日', event)">09/4</button>
+			<button class="option-btn" onclick="selectDate('2025年09月5日', event)">09/5</button>
 		  </div>
 		</section>
 
-		<section class="booking-panel">
+		<!-- 時間 -->
+		<section class="booking-panel time-select">
 		  <h2>選擇時間</h2>
 		  <div class="btn-group">
-			<button class="option-btn" onclick="selectTime('9:00')">9:00</button>
-			<button class="option-btn" onclick="selectTime('12:30')">12:30</button>
-			<button class="option-btn" onclick="selectTime('14:30')">14:30</button>
-			<button class="option-btn" onclick="selectTime('17:00')">17:00</button>
-			<button class="option-btn" onclick="selectTime('20:30')">20:30</button>
+			<button class="option-btn" onclick="selectTime('9:00', event)">9:00</button>
+			<button class="option-btn" onclick="selectTime('12:30', event)">12:30</button>
+			<button class="option-btn" onclick="selectTime('14:30', event)">14:30</button>
+			<button class="option-btn" onclick="selectTime('17:00', event)">17:00</button>
+			<button class="option-btn" onclick="selectTime('20:30', event)">20:30</button>
 		  </div>
 		</section>
 
-		<section class="booking-panel">
+		<!-- 影廳 -->
+		<section class="booking-panel location-select">
 		  <h2>選擇影廳</h2>
 		  <div class="btn-group">
-			<button class="option-btn" onclick="selectLocation('A廳')">A廳</button>
-			<button class="option-btn" onclick="selectLocation('B廳')">B廳</button>
-			<button class="option-btn" onclick="selectLocation('C廳')">C廳</button>
-			<button class="option-btn" onclick="selectLocation('VIP廳')">VIP廳</button>
+			<button class="option-btn" onclick="selectLocation('A廳', event)">A廳</button>
+			<button class="option-btn" onclick="selectLocation('B廳', event)">B廳</button>
+			<button class="option-btn" onclick="selectLocation('C廳', event)">C廳</button>
+			<button class="option-btn" onclick="selectLocation('VIP廳', event)">VIP廳</button>
 		  </div>
 		</section>
 
+		<!-- 訂票資訊 -->
 		<section class="booking-summary">
 		  <h2>訂票資訊</h2>
 		  <p id="summaryText"></p>
@@ -72,6 +77,6 @@
 
 	</main>
 
+	<script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
