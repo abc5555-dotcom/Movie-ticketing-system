@@ -1,125 +1,129 @@
-function goBooking() {
-  window.location.href = "./booking.html";
-}
-
+// ======================
+// 基本頁面跳轉
+// ======================
 function goHome() {
   window.location.href = "index.html";
 }
 
-/* ===== 狀態 ===== */
-let selectedMovie = "";
-let selectedDate = "";
-let selectedTime = "";
-let selectedLocation = "";
-
-/* ===== 通用 active（安全版） ===== */
-function setActive(button, selector) {
-  if (!button) return;
-
-  document.querySelectorAll(selector).forEach(btn => {
-    btn.classList.remove("active");
-  });
-
-  button.classList.add("active");
+function goBooking() {
+  window.location.href = "booking.html";
 }
 
-/* ===== 選電影 ===== */
-function selectMovie(movieName, event) {
-  selectedMovie = movieName;
+// ======================
+// 訂票資料暫存（核心狀態）
+// ======================
+let bookingData = {
+  movie: "",
+  date: "",
+  time: "",
+  location: ""
+};
 
-  const dateBox = document.querySelector(".date-select");
-  const timeBox = document.querySelector(".time-select");
-  const locBox = document.querySelector(".location-select");
-
-  if (dateBox) dateBox.style.display = movieName ? "block" : "none";
-  if (timeBox) timeBox.style.display = "none";
-  if (locBox) locBox.style.display = "none";
-
-  selectedDate = "";
-  selectedTime = "";
-  selectedLocation = "";
-
-  if (event?.target) {
-    setActive(event.target, ".date-select .option-btn");
-  }
-
+// ======================
+// 選擇電影
+// ======================
+function selectMovie(movie) {
+  bookingData.movie = movie;
   updateSummary();
 }
 
-/* ===== 選日期 ===== */
+// ======================
+// 選擇日期
+// ======================
 function selectDate(date, event) {
-  selectedDate = date;
-
-  const timeBox = document.querySelector(".time-select");
-  const locBox = document.querySelector(".location-select");
-
-  if (timeBox) timeBox.style.display = "block";
-  if (locBox) locBox.style.display = "none";
-
-  selectedTime = "";
-  selectedLocation = "";
-
-  if (event?.target) {
-    setActive(event.target, ".date-select .option-btn");
-  }
-
+  bookingData.date = date;
+  setActiveButton(event);
   updateSummary();
 }
 
-/* ===== 選時間 ===== */
+// ======================
+// 選擇時間
+// ======================
 function selectTime(time, event) {
-  selectedTime = time;
-
-  const locBox = document.querySelector(".location-select");
-
-  if (locBox) locBox.style.display = "block";
-
-  selectedLocation = "";
-
-  if (event?.target) {
-    setActive(event.target, ".time-select .option-btn");
-  }
-
+  bookingData.time = time;
+  setActiveButton(event);
   updateSummary();
 }
 
-/* ===== 選影廳 ===== */
+// ======================
+// 選擇影廳
+// ======================
 function selectLocation(location, event) {
-  selectedLocation = location;
-
-  if (event?.target) {
-    setActive(event.target, ".location-select .option-btn");
-  }
-
+  bookingData.location = location;
+  setActiveButton(event);
   updateSummary();
 }
 
-/* ===== 訂票摘要更新（乾淨版）===== */
-function updateSummary() {
-  const el = document.getElementById("summaryText");
-  if (!el) return;
+// ======================
+// 按鈕選取效果（UI互動）
+// ======================
+function setActiveButton(event) {
+  const parent = event.target.parentElement;
+  const buttons = parent.querySelectorAll("button");
 
-  el.innerHTML = `
-    <div style="
-      text-align:center;
-      line-height:1.8;
-      font-size:16px;
-      color:#333;
-    ">
-      <div>🎬 電影：${selectedMovie || "-"}</div>
-      <div>📅 日期：${selectedDate || "-"}</div>
-      <div>⏰ 時間：${selectedTime || "-"}</div>
-      <div>🏢 影廳：${selectedLocation || "-"}</div>
-    </div>
+  buttons.forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+// ======================
+// 更新訂票資訊
+// ======================
+function updateSummary() {
+  const summary = document.getElementById("summaryText");
+
+  if (!summary) return;
+
+  summary.innerHTML = `
+    🎬 電影：${bookingData.movie || "尚未選擇"} <br>
+    📅 日期：${bookingData.date || "尚未選擇"} <br>
+    ⏰ 時間：${bookingData.time || "尚未選擇"} <br>
+    🏢 影廳：${bookingData.location || "尚未選擇"}
   `;
 }
 
-/* ===== 確認訂票 ===== */
+// ======================
+// 確認訂票
+// ======================
 function confirmBooking() {
-  if (!selectedMovie || !selectedDate || !selectedTime || !selectedLocation) {
-    alert("請選擇完整訂票資訊！");
+  if (
+    !bookingData.movie ||
+    !bookingData.date ||
+    !bookingData.time ||
+    !bookingData.location
+  ) {
+    alert("⚠️ 請完成所有選項再確認訂票！");
     return;
   }
 
-  alert("訂票成功！");
+  const ticket = {
+    ...bookingData,
+    orderTime: new Date().toLocaleString()
+  };
+
+  // 存到 localStorage（模擬訂票系統）
+  localStorage.setItem("movieTicket", JSON.stringify(ticket));
+
+  alert(
+    `🎉 訂票成功！\n\n電影：${ticket.movie}\n日期：${ticket.date}\n時間：${ticket.time}\n影廳：${ticket.location}`
+  );
+
+  // 可選：跳回首頁
+  window.location.href = "index.html";
 }
+
+// ======================
+// 頁面載入時初始化
+// ======================
+window.onload = function () {
+  updateSummary();
+
+  // 如果是首頁，不做事
+  const summary = document.getElementById("summaryText");
+  if (!summary) return;
+
+  // 如果已有訂票紀錄（可擴充用）
+  const saved = localStorage.getItem("movieTicket");
+  if (saved) {
+    console.log("已存在訂票紀錄：", JSON.parse(saved));
+  }
+};
