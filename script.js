@@ -6,17 +6,20 @@ function goHome() {
   window.location.href = "index.html";
 }
 
-/* ===== 訂票狀態變數 ===== */
+/* ===== 狀態 ===== */
 let selectedMovie = "";
 let selectedDate = "";
 let selectedTime = "";
 let selectedLocation = "";
 
-/* ===== 通用：設定 active（更穩版） ===== */
+/* ===== 通用 active（安全版） ===== */
 function setActive(button, selector) {
+  if (!button) return;
+
   document.querySelectorAll(selector).forEach(btn => {
     btn.classList.remove("active");
   });
+
   button.classList.add("active");
 }
 
@@ -24,18 +27,20 @@ function setActive(button, selector) {
 function selectMovie(movieName, event) {
   selectedMovie = movieName;
 
-  // 顯示下一步
-  document.querySelector(".date-select")?.style.display = movieName ? "block" : "none";
-  document.querySelector(".time-select").style.display = "none";
-  document.querySelector(".location-select").style.display = "none";
+  const dateBox = document.querySelector(".date-select");
+  const timeBox = document.querySelector(".time-select");
+  const locBox = document.querySelector(".location-select");
 
-  // reset
+  if (dateBox) dateBox.style.display = movieName ? "block" : "none";
+  if (timeBox) timeBox.style.display = "none";
+  if (locBox) locBox.style.display = "none";
+
   selectedDate = "";
   selectedTime = "";
   selectedLocation = "";
 
-  if (event) {
-    setActive(event.target, ".movie-select .option-btn");
+  if (event?.target) {
+    setActive(event.target, ".date-select .option-btn");
   }
 
   updateSummary();
@@ -45,13 +50,16 @@ function selectMovie(movieName, event) {
 function selectDate(date, event) {
   selectedDate = date;
 
-  document.querySelector(".time-select").style.display = "block";
-  document.querySelector(".location-select").style.display = "none";
+  const timeBox = document.querySelector(".time-select");
+  const locBox = document.querySelector(".location-select");
+
+  if (timeBox) timeBox.style.display = "block";
+  if (locBox) locBox.style.display = "none";
 
   selectedTime = "";
   selectedLocation = "";
 
-  if (event) {
+  if (event?.target) {
     setActive(event.target, ".date-select .option-btn");
   }
 
@@ -62,11 +70,13 @@ function selectDate(date, event) {
 function selectTime(time, event) {
   selectedTime = time;
 
-  document.querySelector(".location-select").style.display = "block";
+  const locBox = document.querySelector(".location-select");
+
+  if (locBox) locBox.style.display = "block";
 
   selectedLocation = "";
 
-  if (event) {
+  if (event?.target) {
     setActive(event.target, ".time-select .option-btn");
   }
 
@@ -77,26 +87,29 @@ function selectTime(time, event) {
 function selectLocation(location, event) {
   selectedLocation = location;
 
-  if (event) {
+  if (event?.target) {
     setActive(event.target, ".location-select .option-btn");
   }
 
   updateSummary();
 }
 
-/* ===== 訂票摘要更新 ===== */
+/* ===== 訂票摘要更新（乾淨版）===== */
 function updateSummary() {
-  document.getElementById("summaryText").innerHTML = `
+  const el = document.getElementById("summaryText");
+  if (!el) return;
+
+  el.innerHTML = `
     <div style="
       text-align:center;
       line-height:1.8;
       font-size:16px;
       color:#333;
     ">
-      <div>🎬 電影：${selectedMovie || "未選擇"}</div>
-      <div>📅 日期：${selectedDate || "未選擇"}</div>
-      <div>⏰ 時間：${selectedTime || "未選擇"}</div>
-      <div>🏢 影廳：${selectedLocation || "未選擇"}</div>
+      <div>🎬 電影：${selectedMovie || "-"}</div>
+      <div>📅 日期：${selectedDate || "-"}</div>
+      <div>⏰ 時間：${selectedTime || "-"}</div>
+      <div>🏢 影廳：${selectedLocation || "-"}</div>
     </div>
   `;
 }
